@@ -1,0 +1,20 @@
+diff --git a/src/ipc.ts b/src/ipc.ts
+index eee1c06..094b878 100644
+--- a/src/ipc.ts
++++ b/src/ipc.ts
+@@ -87,6 +87,9 @@ ipcMain.on("ipcCall", async function (_ev: IpcMainEvent, payload) {
+         case "getAppVersion":
+             ret = app.getVersion();
+             break;
++        case "getConfig":
++            ret = global.vectorConfig;
++            break;
+         case "focusWindow":
+             if (global.mainWindow.isMinimized()) {
+                 global.mainWindow.restore();
+@@ -242,4 +245,5 @@ ipcMain.on("ipcCall", async function (_ev: IpcMainEvent, payload) {
+     });
+ });
+ 
++// Also expose via the modern handle API for the preload script
+ ipcMain.handle("getConfig", () => global.vectorConfig);

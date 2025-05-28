@@ -1,0 +1,20 @@
+diff --git a/src/electron-main.ts b/src/electron-main.ts
+index abc123..def456 100644
+--- a/src/electron-main.ts
++++ b/src/electron-main.ts
+@@ -492,6 +492,15 @@ app.on("ready", async () => {
+         },
+     });
+ 
++    // Add custom header to identify Feral Desktop
++    const session = global.mainWindow.webContents.session;
++    session.webRequest.onBeforeSendHeaders((details, callback) => {
++        details.requestHeaders['X-Feral-Desktop-Auth'] = 'feral-desktop-' + app.getVersion();
++        callback({ requestHeaders: details.requestHeaders });
++    });
++
++    void global.mainWindow.loadURL("vector://vector/webapp/");
++
+     void global.mainWindow.loadURL("vector://vector/webapp/");
+     // Handle spellchecker
+     // For some reason spellCheckerEnabled isn't persisted, so we have to use the store here
