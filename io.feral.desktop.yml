@@ -1,0 +1,83 @@
+app-id: io.feral.desktop
+runtime: org.freedesktop.Platform
+runtime-version: '23.08'
+sdk: org.freedesktop.Sdk
+base: org.electronjs.Electron2.BaseApp
+base-version: '23.08'
+command: run.sh
+separate-locales: false
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.node18
+build-options:
+  append-path: /usr/lib/sdk/node18/bin
+  env:
+    NPM_CONFIG_LOGLEVEL: info
+tags:
+  - proprietary
+finish-args:
+  - --share=ipc
+  - --socket=x11
+  - --socket=pulseaudio
+  - --share=network
+  - --device=dri
+  - --env=ELECTRON_TRASH=gio
+  - --filesystem=home
+  - --talk-name=org.freedesktop.secrets
+  - --talk-name=org.kde.StatusNotifierWatcher
+  - --talk-name=com.canonical.AppMenu.Registrar
+  - --talk-name=com.canonical.Unity
+  - --talk-name=org.freedesktop.portal.Fcitx
+  - --filesystem=xdg-run/pipewire-0
+
+modules:
+  - name: feral-desktop
+    buildsystem: simple
+    sources:
+      - type: dir
+        path: dist/linux-unpacked
+        dest: main
+      - type: script
+        dest-filename: run.sh
+        commands:
+          - zypak-wrapper /app/main/element-desktop "$@"
+      - type: file
+        path: build/icons/256x256.png
+        dest: icons
+      - type: file
+        path: build/icons/512x512.png
+        dest: icons
+    build-commands:
+      # Copy the unpacked Electron app
+      - cp -a main /app/
+      
+      # Install the run script
+      - install -Dm755 run.sh /app/bin/run.sh
+      
+      # Install icons
+      - install -Dm644 icons/256x256.png /app/share/icons/hicolor/256x256/apps/io.feral.desktop.png
+      - install -Dm644 icons/512x512.png /app/share/icons/hicolor/512x512/apps/io.feral.desktop.png
+      
+      # Try to patch the desktop name if patch-desktop-filename is available
+      - |
+        if [ -f /app/bin/patch-desktop-filename ]; then
+          /app/bin/patch-desktop-filename /app/main/resources/app.asar || true
+        fi
+
+  - name: desktop-file
+    buildsystem: simple
+    sources:
+      - type: file
+        path: build/linux/feral-desktop.desktop
+    build-commands:
+      - install -Dm644 feral-desktop.desktop /app/share/applications/io.feral.desktop.desktop
+      - desktop-file-edit --set-key=Exec --set-value='run.sh %u' /app/share/applications/io.feral.desktop.desktop
+      - desktop-file-edit --set-key=Icon --set-value='io.feral.desktop' /app/share/applications/io.feral.desktop.desktop
+
+  - name: appdata
+    buildsystem: simple
+    sources:
+      - type: file
+        path: io.feral.desktop.appdata.xml
+    build-commands:
+      - install -Dm644 io.feral.desktop.appdata.xml /app/share/appdata/io.feral.desktop.appdata.xml
+      - install -Dm644 io.feral.desktop.appdata.xml /app/share/metainfo/io.feral.desktop.appdata.xml

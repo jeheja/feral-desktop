@@ -1,0 +1,143 @@
+{
+  "appId": "io.feral.desktop",
+  "productName": "Feral Desktop",
+  "directories": {
+    "output": "dist"
+  },
+  "files": [
+    "lib/**/*",
+    "node_modules/**/*",
+    "webapp.asar"
+  ],
+  "linux": {
+    "target": [
+      {
+        "target": "deb",
+        "arch": ["x64", "arm64"]
+      },
+      {
+        "target": "rpm",
+        "arch": ["x64"]
+      },
+      {
+        "target": "AppImage",
+        "arch": ["x64"]
+      },
+      {
+        "target": "tar.gz",
+        "arch": ["x64"]
+      }
+    ],
+    "icon": "build/icons/feral.png",
+    "category": "Network",
+    "maintainer": "Feral Team <support@feral.io>",
+    "desktop": {
+      "Name": "Feral Desktop",
+      "Comment": "Secure messaging and collaboration",
+      "Categories": "Network;InstantMessaging;Chat;",
+      "StartupWMClass": "Feral",
+      "MimeType": "x-scheme-handler/element;x-scheme-handler/matrix;x-scheme-handler/feral;"
+    },
+    "executableName": "feral-desktop"
+  },
+  "deb": {
+    "packageName": "feral-desktop",
+    "depends": [
+      "libgtk-3-0",
+      "libnotify4", 
+      "libnss3",
+      "libxss1",
+      "libxtst6",
+      "xdg-utils",
+      "libatspi2.0-0",
+      "libuuid1",
+      "libsecret-1-0",
+      "libayatana-appindicator3-1 | libappindicator3-1"
+    ],
+    "category": "net",
+    "priority": "optional",
+    "afterInstall": "build/linux/after-install.sh",
+    "afterRemove": "build/linux/after-remove.sh"
+  },
+  "rpm": {
+    "packageName": "feral-desktop",
+    "license": "Apache-2.0",
+    "category": "Network;InstantMessaging",
+    "depends": [
+      "gtk3",
+      "libnotify",
+      "nss",
+      "libXScrnSaver",
+      "libXtst",
+      "xdg-utils",
+      "at-spi2-core",
+      "libuuid",
+      "libsecret"
+    ]
+  },
+  "mac": {
+    "category": "public.app-category.social-networking",
+    "darkModeSupport": true,
+    "hardenedRuntime": true,
+    "gatekeeperAssess": false,
+    "entitlements": "build/entitlements.mac.plist",
+    "entitlementsInherit": "build/entitlements.mac.plist",
+    "target": [
+      {
+        "target": "dmg",
+        "arch": ["x64", "arm64", "universal"]
+      },
+      {
+        "target": "zip",
+        "arch": ["x64", "arm64"]
+      }
+    ],
+    "artifactName": "${productName}-${version}-${arch}.${ext}"
+  },
+  "dmg": {
+    "contents": [
+      {
+        "x": 130,
+        "y": 220
+      },
+      {
+        "x": 410,
+        "y": 220,
+        "type": "link",
+        "path": "/Applications"
+      }
+    ],
+    "backgroundColor": "#1a1a1a",
+    "title": "Feral Desktop ${version}",
+    "window": {
+      "width": 540,
+      "height": 380
+    },
+    "icon": "build/icons/feral.png"
+  },
+  "win": {
+    "target": [
+      {
+        "target": "squirrel"
+      },
+      {
+        "target": "msi"
+      }
+    ],
+    "icon": "build/icons/feral.ico"
+  },
+  "protocols": [
+    {
+      "name": "element",
+      "schemes": ["element"]
+    },
+    {
+      "name": "matrix", 
+      "schemes": ["matrix"]
+    },
+    {
+      "name": "feral",
+      "schemes": ["feral"]
+    }
+  ]
+}

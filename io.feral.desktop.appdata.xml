@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>io.feral.desktop</id>
+  <name>Feral Desktop</name>
+  <summary>Matrix collaboration client for the Feralism project</summary>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>Apache-2.0</project_license>
+  <developer_name>Feralism Project</developer_name>
+  
+  <description>
+    <p>
+      Feral Desktop is a beautifully designed Matrix collaboration client built exclusively 
+      for the Feralism community. It provides a modern interface for secure messaging 
+      and collaboration, connecting directly to the Feralism project's Matrix server.
+    </p>
+    <p>
+      Features include:
+    </p>
+    <ul>
+      <li>End-to-end encrypted messaging</li>
+      <li>Voice and video calls</li>
+      <li>File sharing and collaboration</li>
+      <li>Community spaces and rooms</li>
+      <li>Modern user interface</li>
+      <li>Exclusive connection to Feralism's Matrix server</li>
+    </ul>
+    <p>
+      This client is specifically configured to work with the Feralism project infrastructure
+      and is not intended for use with other Matrix servers.
+    </p>
+  </description>
+  
+  <url type="homepage">https://feral.io</url>
+  <url type="bugtracker">https://github.com/feralism/feral-desktop/issues</url>
+  
+  <launchable type="desktop-id">io.feral.desktop.desktop</launchable>
+  
+  <screenshots>
+    <screenshot type="default">
+      <caption>Main chat interface</caption>
+      <image>https://feral.io/images/screenshots/feral-desktop-main.png</image>
+    </screenshot>
+  </screenshots>
+  
+  <releases>
+    <release version="1.11.101" date="2025-05-28">
+      <description>
+        <p>Initial release of Feral Desktop for the Feralism community.</p>
+      </description>
+    </release>
+  </releases>
+  
+  <content_rating type="oars-1.1">
+    <content_attribute id="social-chat">intense</content_attribute>
+    <content_attribute id="social-audio">intense</content_attribute>
+    <content_attribute id="social-contacts">intense</content_attribute>
+  </content_rating>
+  
+  <requires>
+    <internet>always</internet>
+  </requires>
+  
+  <categories>
+    <category>Network</category>
+    <category>InstantMessaging</category>
+    <category>Chat</category>
+  </categories>
+  
+  <keywords>
+    <keyword>chat</keyword>
+    <keyword>messaging</keyword>
+    <keyword>matrix</keyword>
+    <keyword>feralism</keyword>
+    <keyword>community</keyword>
+    <keyword>collaboration</keyword>
+  </keywords>
+</component>

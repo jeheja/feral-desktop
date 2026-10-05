@@ -58,7 +58,7 @@ const config: Omit<Writable<Configuration>, "electronFuses"> & {
     // Make all fuses required to ensure they are all explicitly specified
     electronFuses: Required<Configuration["electronFuses"]>;
 } = {
-    appId: DEFAULT_APP_ID,
+    appId: "fr.feralisme.desktop",
     asarUnpack: "**/*.node",
     electronFuses: {
         enableCookieEncryption: true,
@@ -93,8 +93,8 @@ const config: Omit<Writable<Configuration>, "electronFuses"> & {
         name: pkg.name,
         productName: pkg.productName,
         description: pkg.description,
-        electron_appId: DEFAULT_APP_ID,
-        electron_protocol: DEFAULT_PROTOCOL_SCHEME,
+        electron_appId: "fr.feralisme.desktop",
+        electron_protocol: "fr.feralisme.desktop",
     },
     linux: {
         target: ["tar.gz", "deb"],

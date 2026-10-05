@@ -1,0 +1,12 @@
+{
+  "productName": "Feral",
+  "appId": "fr.feralisme.desktop",
+  "protocolScheme": "fr.feralisme.desktop",
+  "description": "Feral: Communication sauvage et libre",
+  "configDir": "feral.io",
+  "icons": {
+    "linux": "build/icons/feral.png",
+    "mac": "build/icons/feral.icns",
+    "win": "build/icons/feral.ico"
+  }
+}

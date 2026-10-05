@@ -1,0 +1,50 @@
+{
+  "productName": "Feral Desktop",
+  "appId": "io.feral.desktop",
+  "directories": {
+    "output": "dist"
+  },
+  "win": {
+    "target": [
+      {
+        "target": "squirrel",
+        "arch": ["x64", "arm64"]
+      },
+      {
+        "target": "msi",
+        "arch": ["x64", "arm64"]
+      },
+      {
+        "target": "nsis",
+        "arch": ["x64", "arm64"]
+      }
+    ],
+    "icon": "build/icons/feral.ico",
+    "signingHashAlgorithms": ["sha256"],
+    "certificateSubjectName": "${env.ED_SIGNTOOL_SUBJECT_NAME}",
+    "certificateSha1": "${env.ED_SIGNTOOL_THUMBPRINT}"
+  },
+  "squirrelWindows": {
+    "iconUrl": "https://feral.io/icon.ico",
+    "loadingGif": "build/icons/feral-installing.gif"
+  },
+  "nsis": {
+    "oneClick": false,
+    "allowToChangeInstallationDirectory": true,
+    "allowElevation": true,
+    "perMachine": false,
+    "installerIcon": "build/icons/feral.ico",
+    "uninstallerIcon": "build/icons/feral.ico",
+    "installerHeader": "build/icons/feral-installer-header.bmp",
+    "installerSidebar": "build/icons/feral-installer-sidebar.bmp",
+    "license": "LICENSE-COMMERCIAL",
+    "warningsAsErrors": false,
+    "menuCategory": true,
+    "shortcutName": "Feral Desktop"
+  },
+  "msi": {
+    "perMachine": true,
+    "shortcutName": "Feral Desktop",
+    "upgradeCode": "B3E4F4D2-5C7A-4B8E-9F1A-FERAL0DESKTOP"
+  }
+}

@@ -1,0 +1,15 @@
+[Desktop Entry]
+Name=Feral Desktop
+Comment=Matrix collaboration client for the Feralism project
+GenericName=Feralism Community Client
+Exec=feral-desktop %u
+Terminal=false
+Type=Application
+Icon=io.feral.desktop
+StartupWMClass=Feral
+Categories=Network;InstantMessaging;Chat;
+MimeType=x-scheme-handler/element;x-scheme-handler/matrix;x-scheme-handler/feral;
+Keywords=chat;messaging;matrix;feralism;community;collaboration;
+StartupNotify=true
+X-GNOME-UsesNotifications=true
+X-Desktop-File-Install-Version=0.26

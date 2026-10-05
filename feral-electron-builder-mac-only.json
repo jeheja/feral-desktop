@@ -1,0 +1,59 @@
+{
+  "appId": "io.feral.desktop",
+  "productName": "Feral Desktop",
+  "directories": {
+    "output": "dist"
+  },
+  "files": [
+    "lib/**/*",
+    "node_modules/**/*",
+    "webapp.asar"
+  ],
+  "mac": {
+    "category": "public.app-category.social-networking",
+    "darkModeSupport": true,
+    "hardenedRuntime": false,
+    "gatekeeperAssess": false,
+    "target": [
+      {
+        "target": "zip",
+        "arch": ["x64", "arm64"]
+      }
+    ],
+    "artifactName": "${productName}-${version}-${arch}.${ext}"
+  },
+  "dmg": {
+    "contents": [
+      {
+        "x": 130,
+        "y": 220
+      },
+      {
+        "x": 410,
+        "y": 220,
+        "type": "link",
+        "path": "/Applications"
+      }
+    ],
+    "backgroundColor": "#1a1a1a",
+    "title": "Feral Desktop ${version}",
+    "window": {
+      "width": 540,
+      "height": 380
+    }
+  },
+  "protocols": [
+    {
+      "name": "element",
+      "schemes": ["element"]
+    },
+    {
+      "name": "matrix", 
+      "schemes": ["matrix"]
+    },
+    {
+      "name": "feral",
+      "schemes": ["feral"]
+    }
+  ]
+}

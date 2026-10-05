@@ -1,0 +1,68 @@
+{
+    "default_server_config": {
+        "m.homeserver": {
+            "base_url": "https://feralisme.fr",
+            "server_name": "feralisme.fr"
+        },
+        "m.identity_server": {
+            "base_url": "https://vector.im"
+        }
+    },
+    "disable_custom_urls": true,
+    "disable_guests": true,
+    "disable_registration": true,
+    "disable_login_language_selector": false,
+    "disable_3pid_login": false,
+    "force_verification": false,
+    "brand": "Feral",
+    "integrations_ui_url": "https://scalar.vector.im/",
+    "integrations_rest_url": "https://scalar.vector.im/api",
+    "integrations_widgets_urls": [
+        "https://scalar.vector.im/_matrix/integrations/v1",
+        "https://scalar.vector.im/api",
+        "https://scalar-staging.vector.im/_matrix/integrations/v1",
+        "https://scalar-staging.vector.im/api",
+        "https://scalar-staging.riot.im/scalar/api"
+    ],
+    "default_widget_container_height": 280,
+    "default_country_code": "FR",
+    "show_labs_settings": false,
+    "features": {
+        "feature_disable_registration": true,
+        "registration_url": "https://feralisme.fr/inscription",
+        "feature_group_calls": true,
+        "feature_video_rooms": true,
+        "feature_element_call_video_rooms": true,
+        "feature_element_call": true,
+        "feature_voice_messages": true,
+        "feature_call_transfers": true
+    },
+    "default_federate": true,
+    "default_theme": "light",
+    "room_directory": {
+        "servers": ["feralisme.fr"]
+    },
+    "setting_defaults": {
+        "breadcrumbs": true,
+        "UIFeature.registration": true
+    },
+    "jitsi": {
+        "preferred_domain": "meet.element.io"
+    },
+    "element_call": {
+        "url": "https://call.element.io",
+        "participant_limit": 8,
+        "brand": "Feral Call"
+    },
+    "map_style_url": "https://api.maptiler.com/maps/streets/style.json?key=fU3vlMsMn4Jb6dnEIFsx",
+    "embedded_pages": {
+        "login_for_welcome": true,
+        "welcome_url": "welcome-feral.html"
+    },
+    "branding": {
+        "auth_header_logo_url": "themes/element/img/logos/feral-logo-black.png",
+        "welcome_logo_url": "themes/element/img/logos/feral-logo-black.png",
+        "auth_footer_links": []
+    },
+    "external_registration_url": "https://feralisme.fr/inscription/"
+}
